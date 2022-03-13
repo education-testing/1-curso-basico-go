@@ -1,31 +1,52 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
-	// Declaración de constantes.
-	const pi float32 = 3.14
-	const pi2 = 3.1415
-	fmt.Println("pi: ", pi)
-	fmt.Println("pi2: ", pi2)
+	//suma
+	var x int = 5
+	var y int = 6
+	result := x + y
+	fmt.Println("sum: ", result)
 
-	//Declaración de variables de forma 1:
-	base := 12
-	fmt.Println(base)
+	//Resta
+	result = y - x
+	fmt.Println("subtract: ", result)
 
-	//Declaración de variables de forma 2:
-	var altura int = 32
-	fmt.Println(altura)
+	//Multiplicación
+	result = y * x
+	fmt.Println("Multiply: ", result)
 
-	//Declaración de variables de forma 3:
-	var anchura int
-	fmt.Println(anchura)
+	//División
+	result = y / x
+	fmt.Println("Division: ", result)
 
-	var a int
-	var b float32
-	var c string
-	var d bool
+	//Modulo
+	result = y % x
+	fmt.Println("Modulo: ", result)
 
-	fmt.Println(a, b, c, d)
+	//Incrementar
+	x++
+	fmt.Println("Incrementar x: ", x)
+
+	//Decrementar
+	x--
+	fmt.Println("Decrementar: ", x)
+
+	var altura int = 5
+	var longitudA int = 6
+	var longitudB int = 7
+	var radio int = 9
+
+	areaTrapecio := altura * ((longitudA + longitudB) / 2)
+	areaRectangulo := altura * longitudA
+	areaCirculo := math.Pi * math.Exp2(float64(radio))
+
+	fmt.Println("Area Trapecio: ", areaTrapecio)
+	fmt.Println("Area Rectangulo : ", areaRectangulo)
+	fmt.Println("Area Circulo : ", areaCirculo)
 
 }

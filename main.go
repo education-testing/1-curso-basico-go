@@ -1,52 +1,21 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import "fmt"
 
 func main() {
-	//suma
-	var x int = 5
-	var y int = 6
-	result := x + y
-	fmt.Println("sum: ", result)
+	nums := []int{1, 3, 4, 2, 2}
+	fmt.Println(findDuplicate(nums))
+}
 
-	//Resta
-	result = y - x
-	fmt.Println("subtract: ", result)
+func findDuplicate(nums []int) int {
+	defer printDefer(nums)
+	for index := range nums {
+		fmt.Println(index)
+	}
 
-	//Multiplicación
-	result = y * x
-	fmt.Println("Multiply: ", result)
+	return 1
+}
 
-	//División
-	result = y / x
-	fmt.Println("Division: ", result)
-
-	//Modulo
-	result = y % x
-	fmt.Println("Modulo: ", result)
-
-	//Incrementar
-	x++
-	fmt.Println("Incrementar x: ", x)
-
-	//Decrementar
-	x--
-	fmt.Println("Decrementar: ", x)
-
-	var altura int = 5
-	var longitudA int = 6
-	var longitudB int = 7
-	var radio int = 9
-
-	areaTrapecio := altura * ((longitudA + longitudB) / 2)
-	areaRectangulo := altura * longitudA
-	areaCirculo := math.Pi * math.Exp2(float64(radio))
-
-	fmt.Println("Area Trapecio: ", areaTrapecio)
-	fmt.Println("Area Rectangulo : ", areaRectangulo)
-	fmt.Println("Area Circulo : ", areaCirculo)
-
+func printDefer(nums []int) {
+	fmt.Println(nums)
 }

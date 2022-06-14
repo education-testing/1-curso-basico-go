@@ -6,21 +6,22 @@ import (
 )
 
 func main() {
-	slice := []string{"Luis", "pedro", "Carlos"}
+	sliceString := []string{"Hola", "que", "hace"}
 
-	for i, value := range slice {
-		fmt.Println("Indice: ", i, "Value: ", value)
+	for i, _ := range sliceString {
+		fmt.Println(i)
 	}
 
 	word := "amor a roma"
-	fmt.Println(isPalindrome(strings.ToLower(word)))
+	print(isPalindrome(word))
 }
 
 func isPalindrome(word string) bool {
-	var result string
+	word = strings.ToLower(word) //Normalizar la información
+	var newWord string
 	for i := len(word) - 1; i >= 0; i-- {
-		result += string(word[i])
+		newWord += string(word[i])
 	}
 
-	return result == word
+	return word == newWord
 }

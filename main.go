@@ -13,7 +13,21 @@ func main() {
 	}
 
 	word := "amor a roma"
-	print(isPalindrome(word))
+	isPalindrome(word)
+
+	//// Mapas
+	m := make(map[string]int)
+	m["hector"] = 12
+	m["Carlos"] = 21
+
+	for key, value := range m {
+		fmt.Println(key, value)
+	}
+
+	//Encontrando un valor
+	value, ok := m["hectorino"]
+	fmt.Println(ok, value)
+
 }
 
 func isPalindrome(word string) bool {

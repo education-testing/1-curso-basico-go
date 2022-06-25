@@ -33,4 +33,12 @@ func main() {
 	calculate(mySquare)
 	calculate(myRectangle)
 
+	//Declaración de una lusta de interfaces:
+	interfaceLis := []interface{}{"Hello world", 4.5, 5, true}
+	fmt.Println(interfaceLis)
+
+	for i, v := range interfaceLis {
+		fmt.Println(i, v)
+	}
+
 }

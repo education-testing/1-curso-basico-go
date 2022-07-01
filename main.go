@@ -1,40 +1,31 @@
 package main
 
-import (
-	"fmt"
-	"sync"
-)
+import "fmt"
 
-func say(name string, group *sync.WaitGroup) {
-	fmt.Println("Hello", name)
-	group.Done()
+func modify(name string) string {
+	return name + "hello"
 }
 
-func sayAnother(name string, channel chan<- string) {
-	channel <- name // Meter información en el canal
+func receiveMessage(channel chan<- string, message string) {
+	channel <- modify(message)
 }
 
-// Probando la concurrencia en go
 func main() {
-	name := "Luis"
-	var group sync.WaitGroup
-	group.Add(1) // Se agrega 1 ya que soló voy a tener una goroutine
-	fmt.Println("Hello", name)
-	go say("Eduardo", &group) // No se alcanza a ejecutar antes que el hilo del main
+	channel := make(chan string, 2)
+	channel <- "Mensaje1"
+	channel <- "Mensaje2"
+	fmt.Println(len(channel))
+	fmt.Println(cap(channel))
 
-	group.Wait()
+	close(channel)
 
-	func(parameter string) {
-		fmt.Println("GoodBye", parameter)
-	}(name)
-	//time.Sleep(time.Second * 1) // Esto lo usamos para tardar el hilo de main, y poder ver el hilo de say()
+	for message := range channel {
+		fmt.Println(message)
+	}
 
-	/*
-		Creación de los canales
-	*/
+	email1 := make(chan string)
+	email2 := make(chan string)
 
-	channel := make(chan string, 1)
-	go sayAnother(name, channel)
-	fmt.Println("mi canal", <-channel)
-
+	go receiveMessage(email1, "Email1")
+	go receiveMessage(email2, "Email2")
 }
